@@ -1,1 +1,312 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photon Open Source</title>
+	<link rel="stylesheet" type="text/css" href="./src/style/home.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+
+</head>
+<body>
+	<div id=bullet-navigation>
+		<ul>
+			<li class="link"><a href="#banner"></a></li>
+			<li class="link"><a href="#api-reader"></a></li>
+			<li class="link"><a href="#transcode"></a></li>
+			<li class="link"><a href="#source-code"></a></li>
+		</ul>
+	</div>
+	<div id="header">
+		<a href="index.html" class="link">
+			<img src="./assets/images/Logo_header.png">
+		</a>
+		<div class="mobile-header hide m-table" style="width: 100%;">
+			<div id="hamburger-menu" style="display: table-cell; width: 20%;">
+				<div class="link">
+					<img src="./assets/images/mobile/Hamburger.png" style="height: 15px;">
+					<img src="./assets/images/mobile/Close.png" class="hide" style="height: 15px;">
+				</div>
+			</div>
+			<div id="logo" class="table-cell hide" style="width: 60%; text-align: center; vertical-align: middle;">
+				<img src="./assets/images/morph.png" height="30px">
+			</div>
+			<div style="width: 20%;"></div>
+		</div>
+		
+		<div class="horizontal-menu-container">
+			<ul>
+				<li class="link regular-font letter-spacing-05 m-thin-font"><a href="#api-reader">API TRANSCODING</a></li>
+				<li class="link regular-font letter-spacing-05 m-thin-font"><a href="#transcode">WEB TRANSCODING</a></li>
+				<li class="link regular-font letter-spacing-05 m-thin-font"><a href="#source-code">SOURCE CODE</a></li>
+				<li class="link regular-font letter-spacing-05 m-thin-font" style="display: none;"><a href="https://labs.photon.in/morph_key_components_doc/transcoding.html">DOCUMENTATION</a></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			var menus = $(".horizontal-menu-container");
+			var expand = false;
+			var top = parseInt($(".banner-message-container>img[src=\"./assets/images/Logo_header.png\"]").css("margin-top").replace("px", ""));
+
+			var expandHamburger = function(){
+				$("#hamburger-menu>div>img").removeClass("hide");
+				$("img[src=\"./assets/images/mobile/Hamburger.png\"]").addClass("hide");
+
+				if($(this).scrollTop() > top)
+					hideMobileHeader();	
+		
+				setHeaderBackground();
+				menus.animate({ height: menus[0].scrollHeight }, 100, function(){ expand = true;});
+			}
+
+			var collapseHamburger = function(){
+				$("#hamburger-menu>div>img").removeClass("hide");
+				$("img[src=\"./assets/images/mobile/Close.png\"]").addClass("hide");
+
+				if($(this).scrollTop() > top)
+					showMobileHeader();
+				else
+					clearHeaderBackground();
+
+				menus.animate({ height: 0 }, 100, function(){ expand = false;});
+			}
+
+			var clearHeaderBackground = function(){
+				$("#header").css("background-color", "initial");
+			}
+
+			var setHeaderBackground = function(){
+				$("#header").css("background-color", "#00131B");
+			}
+
+			var showMobileHeader = function(){
+				$("#logo").css("display", "table-cell");
+				setHeaderBackground();
+			}
+
+			var hideMobileHeader = function(){
+				$("#logo").hide();
+				clearHeaderBackground();
+			}
+
+			$(window).scroll(function(){
+				if($(window).width() <= 768){
+					if($(this).scrollTop() > top)
+						showMobileHeader();	
+					else
+						hideMobileHeader();
+				}
+
+				if(expand)
+					collapseHamburger();
+			});
+
+			$("#hamburger-menu>.link").click(function(){
+				if(expand)
+					collapseHamburger();
+				else
+					expandHamburger();
+			});
+		});
+		</script>
+	</div>
+	<div id="content">
+		<div class="inline-block relative left" style="width: 100%;">
+			<img id="banner" src="./assets/images/home banner.png" width="100%" class="inline-block left">
+			<div class="center banner-message-container">
+				<img src="./assets/images/morph.png" class="margin-top-187 m-hide">
+				<img src="./assets/images/Logo_header.png" class="margin-top-187 m-show" height="56px;">
+				<div class="font-22 m-font-17 margin-top-85 ultralight-font letter-spacing-50 letter-line-height-40 no-opacity banner-description m-letter-spacing-2 m-line-height-30">OPEN SOURCE TECHNOLOGIES TO DRIVE DIGITAL INNOVATION.</div>
+			</div>
+			<script type="text/javascript">
+				if($(window).width() <= 768){
+					$("#banner").attr("height", $(window).height()+"px");
+					$("#banner").removeAttr("width");
+				}
+
+				$(".banner-description").animate({
+					"margin-top": "52px",
+					"opacity" : 1
+				}, 1000);
+			</script>
+		</div>
+		<div class="inline-block relative left" style="width: 100%;">
+			<img src="./assets/images/bg.png" width="100%" class="inline-block left m-hide">
+			<div class="center banner-message-container m-banner-message-container">
+				<div class="font-38 margin-top-44 ultralight-font letter-spacing-05 m-hide">THE POWER OF TRANSCODING</div>
+				<div class="font-38 m-font-28 margin-top-44 light-font letter-spacing-05 m-show">THE POWER OF TRANSCODING</div>
+				<div style="display: inline-block; float: left;" class="half-screen m-float-none">
+					<div class="font-28 m-font-20 ultralight-font margin-top-24">Enable Digital Experiences</div>
+					<div class="font-17 m-font-17 light-font margin-top-24 m-margin-top-10">Leverage one digital experience to adapt<br/>design to new digital experiences<br/>across devices.</div>
+				</div>
+				<div class="m-margin-top-10">
+					<img src="./assets/images/mobile/bg_landscape.png" width="100%" class="inline-block m-show m-display-block m-position-absolute m-z-index-minus-1">
+					<div style="display: inline-block; float: left;" class="half-screen m-margin-top-10-percentage">
+						<div class="font-28 m-font-20 ultralight-font margin-top-24">Enable Services</div>
+						<div class="font-17 m-font-17 light-font margin-top-24 m-margin-top-minus-4 m-padding-top-4 m-background-color">By leveraging proprietary semantic<br/>tagging our transcoding engine can<br/>act as an API layer service.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="api-reader" class="inline-block padding-top-74 m-margin-top-minus-2" style="background-color: #002B3E;">
+			<div class="center font-41 m-font-28 medium-font letter-spacing-3" style="color: #5AE7FF;">API Transcoding</div>
+			<div class="center margin-top-13 light-font font-20 m-font-17">Easy way to quickly utilize API functionality without any system integrations.</div>
+			<div class="margin-top-74 feature-section">
+				<div class="center">
+					<img src="./assets/images/server.png" height="350px">
+				</div>
+				<div>
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">Web Service</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">As a web service, the Transcode Engine works fast, light footprint and extremely stable. Many advantages over API integrations and long development processes.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/server.png" height="350px">
+				</div>
+			</div>
+			<div class="margin-top-45 feature-section">
+				<div class="center">
+					<img src="./assets/images/Modular.gif" height="400px" class="m-width-89">
+				</div>
+				<div class="m-margin-top-minus-51">
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">Modular</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">When created as a web service, our transcoding engine uses Micro Service Modular Concept. Creating reusable modulars to ease the service-creation process.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/Modular.gif" height="400px">
+				</div>
+			</div>
+			<div class="margin-top-45 feature-section">
+				<div class="center">
+					<img src="./assets/images/mobile/Parser.gif" height="350px" style="width: 100%;">
+				</div>
+				<div>
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">Parser</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">Parse values from metadata in HTML documents to enable a proper response. The parser is managed by modules to offer fast and reliable deployment.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/ParserDesktop.gif" height="350px">
+				</div>
+			</div>
+			<div class="margin-top-45 margin-bottom-45 feature-section">
+				<div class="center">
+					<img src="./assets/images/ResultDesktop.png" height="350px">
+				</div>
+				<div>
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">Result</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">The Transcode Engine, using industry standards, produces two common format responses: JSON or XML.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/ResultDesktop.png" height="350px">
+				</div>
+			</div>
+		</div>
+		<div id="transcode" class="inline-block margin-top-74">
+			<div class="center font-41 m-font-28 medium-font letter-spacing-3" style="color: #5AE7FF">Web Transcoding</div>
+			<div class="m-width-89 m-margin-auto-n-top-10 center margin-top-13 light-font font-20 m-font-17 m-text-align">Transform a single web experience into a responsive design mobile version without manipulating changes on the backend.</div>
+			<div class="margin-top-74 feature-section">
+				<div class="center">
+					<img src="./assets/images/customize.png" height="350px">
+				</div>
+				<div>
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">Customization</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">The Transcode Engine has the ability to customize the user experience, as well as, adding or removing functionality. Many pre-coded rules are available to be used for customizations. Manage many custom rules that add or remove functionality including turning on or off features.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/customize.png" height="350px">
+				</div>
+			</div>
+			<div class="margin-top-45 feature-section">
+				<div class="center">
+					<img src="./assets/images/No-Interfiere.png" height="350px">
+				</div>
+				<div>
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">No Interference</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">The Transcode Engine sits in it&rsquo;s own layer allowing it to not interfere with previous development.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/No-Interfiere.png" height="350px">
+				</div>
+			</div>
+			<div class="margin-top-45 margin-bottom-45 feature-section">
+				<div class="center">
+					<img src="./assets/images/Performance.gif" height="400px">
+				</div>
+				<div>
+					<div class="center font-28 m-font-20 regular-font letter-spacing-05">Performance</div>
+					<div class="m-width-89 m-margin-auto-n-top-10 margin-top-24 light-font font-18 m-font-15 letter-line-height-22 m-text-align">The Transcoding Engine is optimize to improve web application performances with proprietary methods that embedded within the engine.</div>
+				</div>
+				<div class="center">
+					<img src="./assets/images/Performance.gif" height="400px">
+				</div>
+			</div>
+		</div>
+		<div>
+			<div id="source-code" class="margin-top-56 inline-block" style="width: 100%; background-color: #002B3E;">
+				<div class="center font-35 margin-top-32 light-font letter-spacing-05">SOURCE CODE</div>
+				<div style="width: 56%; margin-left: 22%;">
+					<div class="center margin-top-46">
+						<div class="center" style="border-radius: 50%; background-color: white; display: inline-block;">
+						<img src="./assets/images/Logo_github.png" style="margin: 4px">
+					    </div>
+					    <div class="center">
+					    	<div class="center" style="position: relative; margin: 0 auto; width: 8px;">
+									<div style="height:60px; background-color:white;"></div>
+									<div class="light-font font-26" style="color: #FBD603; display: inline-block; padding: 0px 6px 0px 4px;position: absolute; right: -40px;bottom: 0px;">JS</div>
+							</div>
+						</div>
+					</div>
+					<div class="border-CECECE"></div>
+						<div class="center font-22 margin-top-32 regular-font letter-spacing-05">Photon Morph Framework</div>
+						<div class="font-18 margin-top-15 light-font letter-spacing-05 m-text-align">The Transcode Engine is part of Photon's Morph Framework that allows easy-to-use transformation between one form to another.</div>
+					<div class="center">
+						<a href="https://github.com/photon-infotech/morph-transcoding">
+						<div class="center button-view font-22 margin-top-36 margin-bottom-36 color-0090D2 link regular-font letter-spacing-05">VIEW</div>
+					</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="m-center">
+		<div class="horizontal-menu-container font-14 light-font" style="color: #0090d2;">Copyright &copy; 2017 | Photon Interactive</div>
+	</div>
+	<script type="text/javascript">
+		$("#logo").click(function(){
+			$("html, body").animate({
+					"scrollTop" :0
+			});
+		});
+		$("a").click(function(e){
+			if(this.hash !== ""){
+				e.preventDefault();
+
+				$("html, body").animate({
+					"scrollTop" : $(this.hash).offset().top - 100
+				});
+			}
+		});
+
+		var activeBullet = function(){
+			setTimeout(function(){ 
+				var top = $(window).scrollTop() + $(window).height() / 2;
+				$("#bullet-navigation>ul>li>a").removeClass("active");
+
+				if(top >= $("#source-code").offset().top)
+					$("#bullet-navigation>ul>li>a[href=\"#source-code\"]").addClass("active");
+				else if(top >= $("#transcode").offset().top)
+					$("#bullet-navigation>ul>li>a[href=\"#transcode\"]").addClass("active");
+				else if(top >= $("#api-reader").offset().top)
+					$("#bullet-navigation>ul>li>a[href=\"#api-reader\"]").addClass("active");
+				else if(top >= $("#banner").offset().top)
+					$("#bullet-navigation>ul>li>a[href=\"#banner\"]").addClass("active");
+			}, 500)
+		}
+
+		$(window).scroll(function(){
+			activeBullet();
+		});
+		
+		activeBullet();
+		
+	</script>
+</body>
+</html>

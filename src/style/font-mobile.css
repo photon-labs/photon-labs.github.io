@@ -1,0 +1,105 @@
+@media only screen and (max-device-width: 768px){
+	.m-ultralight-font{
+		font-weight: 100;
+	}
+
+	.m-thin-font{
+		font-weight: 200;
+	}
+
+	.m-light-font {
+		font-weight: 300;
+	}
+
+	.m-regular-font {
+		font-weight: 400;
+	}
+
+	.m-medium-font {
+		font-weight: 500;
+	}
+
+	.m-semi-bold-font {
+		font-weight: 600;
+	}
+
+	.m-font-12 {
+		font-size: 12px;
+	}
+
+	.m-font-14 {
+		font-size: 14px;
+	}
+
+	.m-font-16 {
+		font-size: 16px;
+	}
+
+	.m-font-18 {
+		font-size: 18px;
+	}
+
+	.m-font-20 {
+		font-size: 20px;
+	}
+
+	.m-font-22 {
+		font-size: 22px;
+	}
+
+	.m-font-23 {
+		font-size: 23px;
+	}
+
+	.m-font-15{
+		font-size: 15px;
+	}
+
+	.m-font-17{
+		font-size: 17px;
+	}
+
+	.m-font-24 {
+		font-size: 24px;
+	}
+
+	.m-font-26 {
+		font-size: 26px;
+	}
+
+	.m-font-28 {
+		font-size: 28px;
+	}
+
+	.m-font-30 {
+		font-size: 30px;
+	}
+
+	.m-font-34 {
+		font-size: 34px;
+	}
+
+	.m-font-32{
+		font-size: 32px;
+	}
+
+	.m-font-35 {
+		font-size: 34px;
+	}
+
+	.m-font-38 {
+		font-size: 25px;
+	}
+
+	.m-font-41 {
+		font-size: 41px;
+	}
+
+	.m-letter-spacing-2 {
+		letter-spacing: 2px !important;
+	}
+
+	.m-line-height-30 {
+		line-height: 30px !important;
+	}
+}
